@@ -1,0 +1,105 @@
+#include<iostream>
+
+
+
+class HesapMakinesi {
+private:
+    int a, b;
+
+
+
+
+public:
+    HesapMakinesi() {
+        a = 0;
+        b = 0;
+    }
+
+
+
+
+    void sayiAl() {
+        std::cout << "-->ilk sayıyı bura gir:";
+        std::cin >> a;
+        std::cout << "-->ikinci sayıyı bura gir: ";
+        std::cin >> b;
+    }
+
+
+
+    int topla() {
+        return a + b;
+    }
+
+
+
+    int cikar() {
+        return a - b;
+    }
+
+
+
+    int carp() {
+        return a * b;
+    }
+
+
+
+//eğer a yada b 0 girilirse bu hatayı vermesi için yaptık
+    int bol() {
+        if (b != 0) {
+            return a / b;
+        } else {
+            std::cout << "hata. 0 ile bölme işlemi yapılmaz" << std::endl;
+            return 0;
+        }
+    }
+};
+
+
+
+int main() {
+    HesapMakinesi hesap;
+    int secim;
+
+
+
+    do {
+        std::cout << "1. Toplama\n2. Çıkarma\n3. Çarpma\n4. Bölme\n5. Çıkış\n";
+        std::cout << "Bir işlem seçin: ";
+        std::cin >> secim;
+
+
+
+        switch (secim) {
+            case 1:
+                hesap.sayiAl();
+                std::cout << "Sonuç: " << hesap.topla() << std::endl;
+                break;
+
+            case 2:
+                hesap.sayiAl();
+                std::cout << "Sonuç: " << hesap.cikar() << std::endl;
+                break;
+
+            case 3:
+                hesap.sayiAl();
+                std::cout << "Sonuç: " << hesap.carp() << std::endl;
+                break;
+
+            case 4:
+                hesap.sayiAl();
+                std::cout << "Sonuç: " << hesap.bol() << std::endl;
+                break;
+
+            case 5:
+                std::cout << "Programdan çıkılıyor.\n";
+                break;
+            default:
+                std::cout << "Geçersiz seçim. Tekrar deneyin.\n";
+        }
+
+    } while (secim != 5);
+
+    return 0;
+}
